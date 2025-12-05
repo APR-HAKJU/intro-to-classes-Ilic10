@@ -1,6 +1,6 @@
 """
 Übung 3: Song mit Listen
-
+ 
 Aufgabe:
 Erstelle eine Klasse `Song` mit:
 - Konstruktor mit Parametern: titel (String) und interpreten (Liste, z.B. ["Artist1", "Artist2"])
@@ -13,17 +13,17 @@ Erstelle eine Klasse `Song` mit:
   - Gibt die Anzahl der Interpreten zurück
 - Methode play() ohne Parameter:
   - Gibt aus "▶️ Song '{titel}' wird gespielt..."
-
+ 
 Erstelle einen Song mit einem Titel und 2 Interpreten deiner Wahl,
 zeige die Info, füge einen weiteren Interpreten hinzu, zeige die Anzahl und die Info nochmal.
 Spiele dann den Song ab.
-
+ 
 💡 Tipps:
 - self.interpreten.append(name) fügt ein Element zur Liste hinzu
 - len(self.interpreten) gibt die Anzahl der Elemente zurück
 - Mit einer for-Schleife kannst du alle Interpreten ausgeben
 - Du kannst beliebige Interpreten und Titel verwenden!
-
+ 
 Beispiel Ergebnis:
 🎵 Song: Summer Vibes
    Interpreten: DJ Max, Sarah Sound
@@ -33,23 +33,51 @@ Beispiel Ergebnis:
    Interpreten: DJ Max, Sarah Sound, Beat Producer
 ▶️ Song 'Summer Vibes' wird gespielt...
 """
-
+ 
 # TODO: Erstelle hier die Klasse Song
-
-
+class Song:
+    def __init__(self, titel,interpreten):
+        self.titel = titel
+        self.interpreten = interpreten
+        print(f"Neuer Song mit Titel {self.titel} &n Interpreten {self.interpreten} wurde erstellt!")
+ 
+ 
+    def zeige_info(self):
+        print(f"Neuer Song mit Titel {self.titel} &n Interpreten {self.interpreten} wurde erstellt!")
+ 
+    def interpret_hinzufügen(self,neuer_interpret):
+        self.interpreten.append(neuer_interpret)
+        print(f"{neuer_interpret} wurde hinzugefügt")
+        print(f"Alle Interpreten: {self.interpreten}")
+ 
+ 
+    def anzahl_interpreten(self):
+        return len(self.interpreten)
+   
+    def play(self):
+        print(f"▶️ Song '{self.titel}' wird gespielt...")
 # TODO: Erstelle einen Song mit einem Titel und 2 Interpreten deiner Wahl
-
-
+song_1 = Song(titel="Die with a smile", interpreten=["Bruno Mars", "Lady Gaga"])
+song_2 = Song(titel= "Zombie", interpreten=["Cranberris"])
+rock_song = Song(titel="My only Angel", interpreten=["Yungblud", "Aerosmith"])
+ 
 # TODO: Zeige die Song-Info
-
-
+song_1.zeige_info()
+ 
 # TODO: Füge einen weiteren Interpreten hinzu
-
-
-# TODO: Zeige die Anzahl der Interpreten
-
-
+song_1.interpret_hinzufügen("DJ Lenzi")
+song_1.interpret_hinzufügen("DJ Obdocha")
+# TODO: Zeige die Anzahl der Interpretens
+nr_artists = song_1.anzahl_interpreten()
+print(nr_artists)
+print(song_1.anzahl_interpreten())
+ 
 # TODO: Zeige die Song-Info erneut
-
-
+song_1.zeige_info()
+ 
 # TODO: Spiele den Song ab
+song_1.play()
+ 
+ 
+ 
+ 
